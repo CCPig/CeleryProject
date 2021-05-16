@@ -9,7 +9,7 @@
 import os
 import time
 import socket
-from CeleryPrj.app import app
+from CeleryProject.app import app
 
 def get_host_ip():
     """

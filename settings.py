@@ -23,10 +23,10 @@ CELERY_DEFAULT_ROUTING_KEY = "task.default"
 
 CELERY_ROUTES = (
     {
-        re.compile(r"CeleryPrj\.tasks\.(taskA|taskB)"): {"queue": "tasks_A", "routing_key": "A.import"}
+        re.compile(r"CeleryProject\.tasks\.(taskA|taskB)"): {"queue": "tasks_A", "routing_key": "A.import"}
     },
     {
-        "CeleryPrj.tasks.add": {"queue": "default", "routing_key": "task.default"}
+        "CeleryProject.tasks.add": {"queue": "default", "routing_key": "task.default"}
     }
 )
 
@@ -38,16 +38,16 @@ CELERY_ACCEPT_CONTENT = ['json']
 
 CELERYBEAT_SCHEDULE = {
     "add":{
-        "task":"CeleryPrj.tasks.add",
+        "task":"CeleryProject.tasks.add",
         "schedule":timedelta(seconds=10),   #每10s执行一次
         "args":(10,16)
     },
     "taskA":{
-        "task": "CeleryPrj.tasks.taskA",
+        "task": "CeleryProject.tasks.taskA",
         "schedule": crontab(minute="*/1")   #每1min执行一次
     },
     "taskB":{
-        "task": "CeleryPrj.tasks.taskB",
+        "task": "CeleryProject.tasks.taskB",
         "schedule": crontab(minute="*/1")   #每1min执行一次
     }
 }

@@ -6,8 +6,8 @@
 @time: 2021/5/15 下午3:42
 """
 from celery import Celery
-app = Celery("CeleryPrj", include=["CeleryPrj.tasks"])
-app.config_from_object("CeleryPrj.settings")
+app = Celery("CeleryProject", include=["CeleryProject.tasks"])
+app.config_from_object("CeleryProject.settings")
 
 
 if __name__ == "__main__":
